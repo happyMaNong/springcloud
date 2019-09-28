@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class DemoConfig {
-    @Value("${spring.data.mongodb.uri}")
-    String mongodbUri;
+    @Value("${username}")
+    String username;
 
     @GetMapping("/getUri")
     public String getMongodbUri() {
-        return mongodbUri;
+        return username;
     }
 }
