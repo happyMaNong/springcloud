@@ -3,9 +3,11 @@ package com.tlp.springcloud.mybatisdemo;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @MapperScan("com.tlp.springcloud.mybatisdemo.dao")
+@EnableDiscoveryClient
 public class MybatisDemoApplication {
 
     public static void main(String[] args) {
