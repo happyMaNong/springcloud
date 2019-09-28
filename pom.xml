@@ -11,7 +11,7 @@
 	<groupId>com.tlp.springcloud</groupId>
 	<artifactId>studydemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>pom</packaging>
 	<name>studydemo</name>
 	<description>Demo project for Spring Boot</description>
 

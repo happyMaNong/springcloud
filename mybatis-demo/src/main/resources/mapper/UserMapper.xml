@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tlp.springcloud.mybatisdemo.dao.IUserDao">
+
+
+    <resultMap id="user" type="com.tlp.springcloud.mybatisdemo.entity.User">
+        <result column="gid" jdbcType="VARCHAR" property="gid" />
+        <result column="username" jdbcType="VARCHAR" property="username" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="address" jdbcType="VARCHAR" property="address" />
+        <result column="sex" jdbcType="VARCHAR" property="sex" />
+        <result column="age" jdbcType="INTEGER" property="age" />
+        <result column="birthday" jdbcType="DATE" property="birthday" />
+    </resultMap>
+
+   <!--resultType：当使用resultType做SQL语句返回结果类型处理时，对于SQL语句查询出的字段在相应的pojo中必须有和它相同的字段对应，而resultType中的内容就是pojo在本项目中的位置。-->
+   <!--resultMap：当使用resultMap做SQL语句返回结果类型处理时，通常需要在mapper.xml中定义resultMap进行pojo和相应表字段的对应。-->
+
+    <select id="getAllUser" resultMap="user">
+        select * from T_USER
+    </select>
+
+    <select id="findUser" parameterType="com.tlp.springcloud.mybatisdemo.entity.User" resultMap="user">
+         select * from T_USER where 1=1
+             <if test="gid!=null">
+                 and gid =#{gid}
+             </if>
+        <if test="username!=null">
+            and username =#{username}
+        </if>
+    </select>
+
+    <update id="updateUser" parameterType="com.tlp.springcloud.mybatisdemo.entity.User">
+
+            update T_USER set  username=#{username},password=#{password} where gid=#{gid}
+
+    </update>
+
+</mapper>
